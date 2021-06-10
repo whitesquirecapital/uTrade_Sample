@@ -1,0 +1,30 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "restartHFT",
+            "command": "/root/work/uTrade-dev/.vscode/restartHFT.sh",
+            "isBackground": false,
+            "type": "shell"
+        },
+        {
+            "label": "restartServer",
+            "command": "/root/Utrade/muTrade-1.0.0-Linux_I2/restartServer.sh",
+            "isBackground": true,
+            "type": "shell"
+        },
+        {
+            "label": "restartDms",
+            "command": "/root/Utrade/muTrade-1.0.0-Linux_I2/restartDms.sh",
+            "isBackground": true,
+            "type": "shell"
+        },
+        {
+            "label": "preTask",
+            "dependsOn": [
+                // "restartDms",
+                "restartServer"
+            ]
+        }
+    ]
+}

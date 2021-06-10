@@ -1,0 +1,4 @@
+[STRATEGY_PARAMS]
+StgSymbolId=UINT64:SPINBOX:0:20:0:Q:Enter StgSymbolId as define in app config in backend:0:0:0
+
+[OTHER]

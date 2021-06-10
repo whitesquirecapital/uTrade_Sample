@@ -1,0 +1,8 @@
+[SYMBOL]
+SYMBOL LEG1=UINT64:C:1:Symbol Leg 1
+Order Mode 1=UCHAR:0:1
+Acc Detail 1=ACCOUNT
+
+[STRATEGY_PARAMS]
+
+[OTHER]
