@@ -39,11 +39,11 @@ include_directories(
   ${muTrade_SOURCE_DIR}/includes
 )
 
-SET(EXECUTABLE_OUTPUT_PATH ${muTrade_SOURCE_DIR}/bin)
-SET(LIBRARY_OUTPUT_PATH ${muTrade_SOURCE_DIR}/bin)
+#SET(EXECUTABLE_OUTPUT_PATH ${muTrade_SOURCE_DIR}/bin)
+#SET(LIBRARY_OUTPUT_PATH ${muTrade_SOURCE_DIR}/bin)
 
-#SET(EXECUTABLE_OUTPUT_PATH /root/Utrade/muTrade-1.0.0-Linux_I2)
-#SET(LIBRARY_OUTPUT_PATH /root/Utrade/muTrade-1.0.0-Linux_I2)
+SET(EXECUTABLE_OUTPUT_PATH /root/Utrade/muTrade-1.0.0-Linux_I2)
+SET(LIBRARY_OUTPUT_PATH /root/Utrade/muTrade-1.0.0-Linux_I2)
 
 
 add_subdirectory( src )

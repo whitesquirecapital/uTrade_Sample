@@ -92,7 +92,8 @@ namespace SampleTemplate
             DEBUG_PRINT << getOrderStr(orderWrapper);
             auto ret = orderWrapper.processConfirmation(confirmation);
             DEBUG_PRINT << getOrderStr(orderWrapper);
-            if (orderWrapper.getLastQuantity() == 0)
+
+            if (!orderWrapper._isReset && orderWrapper.getLastQuantity() == 0)
             {
                 DEBUG_PRINT << getOrderStr(orderWrapper);
                 orderWrapper.reset();
@@ -352,8 +353,8 @@ namespace SampleTemplate
         _strategyInput.maxPos = boost::lexical_cast<int>(stgConfig["MAX_POS"]) * _contract->getStaticData()->marketLot;
 
         _userParams.account.setPrimaryClientCode("PRO");
-        _userParams.account.setTraderId(0);
-        _userParams.account.setLocationId(0);
+        _userParams.account.setTraderId(654987);
+        _userParams.account.setLocationId(111111111111000);
         _userParams.account.setAccountType(1);
     }
 
@@ -568,7 +569,7 @@ namespace SampleTemplate
         // BUY Side
         for (int i = 0; i < _ordersPoolSize; i++)
         {
-            auto _order = _buyOrderBook[i];
+            auto &_order = _buyOrderBook[i];
             auto _internalOrder = _internalBuyOrderBook[i];
             //If Order present in InternalBook
             if (_internalOrder.qty > 0)
@@ -606,7 +607,7 @@ namespace SampleTemplate
         // SELL Side
         for (int i = 0; i < _ordersPoolSize; i++)
         {
-            auto _order = _sellOrderBook[i];
+            auto &_order = _sellOrderBook[i];
             auto _internalOrder = _internalSellOrderBook[i];
             //If Order present in InternalBook
             if (_internalOrder.qty > 0)
@@ -714,7 +715,7 @@ namespace SampleTemplate
            << "\"\", \"\"ContractName\"\": \"\"" << order._instrument->getStaticData()->scripName
            << "\"\", \"\"OrderType\"\": \"\"" << order._orderType
            << "\"\", \"\"ExchOrderId\"\": " << order._exchangeOrderId
-           << ", \"\"OrderStatus\"\": \"\"" << order._isReset
+           << ", \"\"IsReset\"\": \"\"" << order._isReset
            << "\"\", \"\"Price\"\": " << order._price
            << "\"\", \"\"LastQuotedPrice\"\": " << order._lastQuotedPrice
            << ", \"\"Quantity\"\": " << order._lastQuantity
